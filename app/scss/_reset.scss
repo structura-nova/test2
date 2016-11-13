@@ -1,0 +1,65 @@
+/* common */
+html, body, img, form {margin: 0px; padding: 0px; border: none;}
+html, body {height:100%;}
+body, td {font: 14px 'PT Serif', serif; color: #272727;}
+a {color: #272727;	text-decoration: underline;}
+a:hover {text-decoration: none;}
+table {border: 0px; border-collapse: collapse;}
+td {vertical-align: top;}
+object {outline:none;}
+body { background-color: #f2f0f0; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.clear {clear:both;}
+.none {line-height:0;}
+.relative {position:relative;}
+.img-marg {float:left; margin:0 10px 5px 0;}
+.float-l {float:left;}
+.float-r {float:right;}
+.center{text-align: center;}

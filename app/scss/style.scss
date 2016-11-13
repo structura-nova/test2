@@ -1,0 +1,511 @@
+// Создаем mixin
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 479px) { @content; }
+  }
+  @else if $media == wide-handhelds {
+    @media only screen and (min-width: 480px) and (max-width: 599px) { @content; }
+  }
+  @else if $media == small-tablets {
+    @media only screen and (min-width: 600px) and (max-width: 767px) { @content; }
+  }  
+  @else if $media == tablets {
+    @media only screen and (min-width: 768px) and (max-width: 979px) { @content; }
+  }
+  @else if $media == display {
+    @media only screen and (min-width: 980px) { @content; }
+  }
+}
+
+@mixin clearfix { &:after {  content: ".";  display: block;  clear: both;  visibility: hidden;  line-height: 0;  height: 0;} }
+// @include clearfix;
+
+@mixin pod-block-100 {
+		margin: 0 auto; position: relative; box-sizing: content-box;
+		
+			// Для телефонов
+			@include respond-to(handhelds) { width: 100%;  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) { width: 100%;  }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { width: 100%;  }
+			// Для планшетов
+			@include respond-to(tablets) { width: 100%;  }
+			// Для экранов
+			@include respond-to(display) {max-width:1200px;  }
+
+}
+
+// @include pod-block-100;
+
+
+
+@mixin pod-block-adaptive {
+
+ 		min-height: 50px;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        _height: 50px;	
+
+}
+// @include pod-block-adaptive;
+
+@mixin grey-background { 
+	background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+    border-radius: 5px;}
+
+
+
+
+@import "reset";
+@import "text";
+@import "contacts";
+@import "actions";
+@import "spisok-kanalov";
+@import "poslugu-fiz-osob";
+@import "tarufu-privatnogo";
+@import "prestugnuy-250";
+@import "tarufu";
+@import "tarufu-telebachennya";
+@import "slugba-servisu";
+@import "yak-platutu";
+@import "karta-pokruttya-2";
+@import "karta-oplatu";
+
+
+
+.clear{ clear: both;}
+
+.block {
+	width: 100%; box-sizing: content-box; 
+	.pod-block { 
+
+		 margin: 0 auto; position: relative; box-sizing: content-box;
+		// Для телефонов
+		@include respond-to(handhelds) { width: 100%; };
+		// Для телефонов с широким экраном
+		@include respond-to(wide-handhelds) { width: 100%; };
+		// Для планшетов
+		@include respond-to(small-tablets) { width: 100%; };
+		@include respond-to(tablets) { width: 100%; };
+		// Для экранов
+		@include respond-to(display) { max-width: 1200px; };
+		
+	}
+}
+
+.left-content {width: 69%; float: left;
+			.padding { padding: 2% 1% 0% 3%; }
+
+			// Для телефонов до 480
+			@include respond-to(handhelds) { float: none; width: 100%; };
+			// Для телефонов с широким экраном до 767
+			@include respond-to(wide-handhelds) { float: none; width: 100%; };
+			// Для планшетов до 979
+			@include respond-to(tablets) {  };
+			// Для экранов от 980
+			@include respond-to(display) {  };
+		}
+
+
+.right-content {width: 29%; float: right;
+.padding { padding: 2% 0% 0% 1%;}
+			// Для телефонов до 480
+			@include respond-to(handhelds) { float: none; width: 100%; };
+			// Для телефонов с широким экраном до 767
+			@include respond-to(wide-handhelds) { float: none; width: 100%; };
+}
+
+#slider {
+
+.left-content {width: 49%; float: left;
+
+@include respond-to(small-tablets) { width: 69%; }
+
+			.padding { padding: 2% 1% 0% 3%; }
+
+// Для телефонов до 480
+			@include respond-to(handhelds) { float: none; width: 100%; };
+			// Для телефонов с широким экраном до 767
+			@include respond-to(wide-handhelds) { float: none; width: 100%; };
+			// Для планшетов до 979
+			@include respond-to(tablets) {  };
+			// Для экранов от 980
+			@include respond-to(display) {  };
+		}
+
+
+.right-content {width: 49%; float: right;
+
+@include respond-to(small-tablets) { width: 29%;  }
+
+.padding { padding: 2% 0% 0% 1%;}
+			// Для телефонов до 480
+			@include respond-to(handhelds) { float: none; width: 100%; };
+			// Для телефонов с широким экраном до 767
+			@include respond-to(wide-handhelds) { float: none; width: 100%; };
+}
+
+}
+	
+
+
+body {background:#dadada url("../img/background-osn.jpg") repeat scroll left top;}
+
+.relative {position:relative;}
+
+#header {margin:0px;}
+    
+.logo img {height:120px; top:-10px; left:20px; position:absolute;
+	@include respond-to(handhelds) { left:0; top:-10px; height:80px; }
+
+}
+.header-fon {height: 120px; color: #eee;
+    background: url("../img/top-line-banner1200.png") no-repeat right top;
+    }
+.top-nadpis {height: 56px; position: absolute; right: 20px; top: 30px;
+
+ // Для телефонов
+			@include respond-to(handhelds) {  display:none;  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {  display:none;   }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { display:none;  }
+			// Для планшетов
+			@include respond-to(tablets) {  }
+			// Для экранов
+			@include respond-to(display) {  }   
+
+
+}
+
+.top-tel img {max-width:100%;}                
+.top-tel {z-index:99999; height: 30px; width:165px; position: absolute; right: 20px; top: 128px;
+
+             // Для телефонов
+			@include respond-to(handhelds) { right:5px; top:77px; box-shadow: 0 0 5px #a3a3a3; }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {  top:40px; box-shadow: 0 0 5px #a3a3a3;  }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { top:40px; box-shadow: 0 0 5px #a3a3a3; }
+			// Для планшетов
+			@include respond-to(tablets) { width:120px; top:134px; }
+			// Для экранов
+			@include respond-to(display) {  }   
+            
+}            
+              
+                
+
+.top-nadpis {
+  background: #000;
+}
+
+.top-nadpis img {border-radius: 5px; box-shadow: 0 0 5px #a3a3a3;}  
+
+li.tel {float:right;
+@include respond-to(handhelds) { width: 100%;  }
+@include respond-to(wide-handhelds) { width: 100%;  }
+}	
+
+.sm-blue a, .sm-blue a:hover, .sm-blue a:focus, .sm-blue a:active, .sm-blue a.highlighted
+{
+  // Для телефонов
+			@include respond-to(handhelds) {  padding:6px 12px;  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {   padding:6px 12px;  }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { padding:8px 16px; }
+			// Для планшетов
+			@include respond-to(tablets) {  }
+			// Для экранов
+			@include respond-to(display) {  }   
+    
+    
+}
+.tel a img {max-width:100%;}
+.tel a, .tel a:hover {
+    // Для телефонов
+			@include respond-to(handhelds) {  line-height:16px; padding: 5px 12px 0px 12px; }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {   line-height:16px; padding: 5px 12px 0px 12px; }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { line-height:20px; padding: 5px 12px 0px 12px; width:200px; }
+			// Для планшетов
+			@include respond-to(tablets) {  line-height:30px; padding: 16px 2px 4px 2px; width:120px; }
+			// Для экранов
+			@include respond-to(display) {   line-height:30px; padding: 10px 24px 0px 24px; }     
+    
+    
+   }
+
+
+#slider .pod-block {background:#fff;}
+#slider { .padding{padding:0px 5px;}
+    
+    #owl {margin-top:10px;}
+    
+    .right-content {
+
+			@include respond-to(handhelds) { 
+                ul {width:260px; margin:0px auto;}
+                ul li {margin-bottom:5px;}
+             ul li.akcii-btn {margin-bottom:10px;}
+        .big-btn {margin:15px auto 0 auto; width:260px;}
+
+                
+             };
+			
+
+			@include respond-to(wide-handhelds) { 
+             ul { float:left; width:45%; margin:0 4% 0 4%;}
+             ul li {margin:0px 2% 5% 0px;}
+             ul li.akcii-btn {margin-top:5%; margin-bottom:15%;}
+             ul li:last-child {margin:0px 0 5% 0px;} 
+        .big-btn {float:left; width:45%; }
+        .big-btn img {float:left; width:100%; }
+        ul li img {width:100%;}   
+                };
+                
+
+			@include respond-to(small-tablets) {  
+                 ul  {margin-top:10px; }
+              ul li {margin-bottom:5px;}
+              ul li.akcii-btn {margin-bottom:10px;}
+        ul li img {width:90%;}  
+        
+        .big-btn {margin-top:15px;}
+        .big-btn img {width:90%;}  
+                
+            };
+			
+          
+			@include respond-to(tablets) {  
+              ul { float:left; width:45%; margin:5% 4% 0 4%;}
+             ul li {margin:0px 2% 5% 0px;}
+              ul li.akcii-btn {margin-bottom:10%;}
+             ul li:last-child {margin:0px 0 5% 0px;} 
+        .big-btn {float:left; width:45%; margin-top:5%; }
+        .big-btn img {float:left; width:100%; }
+        ul li img {width:100%;}   
+                
+            };
+			
+			@include respond-to(display) {         
+       ul { float:left; width:45%; margin:5% 4% 0 4%;}
+             ul li {margin:0px 2% 5% 0px;}
+              ul li.akcii-btn {margin-top:5%; margin-bottom:10%;}
+             ul li:last-child {margin:0px 0 5% 0px;} 
+        .big-btn {float:left; width:45%; margin-top:5%; }
+        .big-btn img {float:left; width:100%; }
+        ul li img {width:100%;}    
+        };
+            
+       ul.social {width:100%; margin:0; float:none; display:inline; @include clearfix;}
+       ul.social li {width:64px; float:left; }       
+       ul.social li img {max-width:100%;} 
+    }
+    
+}
+
+
+.block { margin-bottom:10px;
+    .pod-block.round {border-radius:10px;}
+    .pod-block.green {background:#fff url(../img/green.png) top left repeat-x;}
+    .pod-block.blue {background:#fff url(../img/blue.png) top left repeat-x;}
+    .pod-block.pink {background:#fff url(../img/pink.png) top left repeat-x;}
+    .pod-block.white {background:#fff;}
+    
+    .round h2 {color:#fff; padding:10px 0px 20px 0px; font-size:24px; font-family: arial;  font-weight:normal; }
+    .round .padding {padding:0px 20px 10px 20px;
+	@include respond-to(handhelds) {  padding:0px 5px 10px 5px;  }
+	@include respond-to(wide-handhelds) {  padding:0px 10px 10px 10px;  }
+	@include respond-to(small-tablets) { padding:0px 15px 10px 15px; }
+
+    }
+}
+
+.owl-news {font-family: Arial; line-height:140%; margin-left:20px; margin-right:20px;
+.owl-item div { margin:0px 10px; }
+.owl-buttons { position:relative;}
+.owl-prev {position:absolute; bottom:40px; left:-40px;} 
+.owl-next {position:absolute; bottom:40px; right:0px;}
+
+}
+.owl-news span {width:100%; margin-bottom:5px; display:block; font-size:14px; font-weight:bold;}
+.owl-news a {font-size:16px;}
+
+
+#akcii {@include respond-to(handhelds) { h2 {font-size:18px; font-weight:bold; } h2 span {font-size:14px; font-weight:normal; } }}
+
+.owl-akcia {  
+.owl-item img {max-width:100%;}
+.owl-buttons { position:relative;}
+.owl-prev {position:absolute; bottom:100px; left:-20px; height:40px; padding-top:30px!important;} 
+.owl-next {position:absolute; bottom:100px; right:-20px; height:40px; padding-top:30px!important;}
+
+}
+
+
+#razdelu {
+    ul li {float:left; margin:0px 15px 10px 0px; padding:0px; 
+    
+            // Для телефонов
+			@include respond-to(handhelds) {  width:45%; margin:0px 4% 1% 1%;  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {  width:23%; margin-right:2%;  }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { width:23%; margin-right:2%;  }
+			// Для планшетов
+			@include respond-to(tablets) { width:18%; margin-right:2%;  }
+			// Для экранов
+			@include respond-to(display) { width:12%; margin-right:0.5%; }
+    img {max-width:100%;}
+    
+    }
+    ul {@include clearfix;}
+    
+   
+    
+    }
+
+  
+    
+  #about {font-family:Arial; font-size:14px; line-height:120%;
+  .padding {padding:0px 20px 0px 20px;
+  @include respond-to(handhelds) { padding:0px 10px 0px 10px;  }
+  
+  }
+  p {margin-bottom:10px;}
+  
+  .right-content { 
+      .padding {padding-top:40px;}
+      h2 {color:#000; line-height:120%; font-size:18px;}
+      
+       ul li {margin:5px 0px;}
+       ul li a {color: #0272bc;
+    font-size: 16px;}
+    li ul {margin-left:20px;}
+    li ul li a {color: #0272bc;
+    font-size: 14px;}
+       
+       }
+  
+  
+  } 
+  
+  
+  #footer {
+      
+      .pod-block {height: 143px; background: url("../img/footer-fon.png") repeat-x right top;}
+      .tel-bottom{
+          
+      
+      height: 80px; width:292px; position: absolute; left: 0px; top: 35px;
+
+ // Для телефонов
+			@include respond-to(handhelds) { img {max-width:90%;}  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {    }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) {   }
+			// Для планшетов
+			@include respond-to(tablets) {  }
+			// Для экранов
+			@include respond-to(display) {  }   
+    
+          
+          
+      }
+      
+      .logo-bottom {
+          
+       height: 80px;  width:135px; position: absolute; right: 0px; top: 35px;
+
+ // Для телефонов
+			@include respond-to(handhelds) {  display:none;  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) {     }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) {  }
+			// Для планшетов
+			@include respond-to(tablets) {  }
+			// Для экранов
+			@include respond-to(display) {  }   
+   
+          
+          
+      }
+      
+      
+  }
+        
+        
+   #text {font-family:Arial; font-size:14px; line-height:120%;
+
+	h1 {margin:10px 0px 20px 0px; line-height: 130%;}
+
+
+  .padding {padding:10px 20px 0px 20px;
+  @include respond-to(handhelds) { padding:0px 10px 0px 10px;  }
+  
+  }
+
+
+
+  h2 {color:#000; line-height: 100%;}
+  p {margin-bottom:10px;}
+  
+img {max-width:100%;} 
+
+
+
+  .right-content { 
+      .padding {padding-top:10px;}
+      h2 {color:#000; line-height:120%; font-size:18px;}
+      
+       ul li {margin:5px 0px;}
+       ul li a {color: #0272bc;
+    font-size: 16px;}
+
+    li ul {margin-left:20px;}
+    li ul li a {color: #0272bc;
+    font-size: 14px;}
+
+    li.active > a {color:#000; text-decoration: none;}
+       
+    .btn-user {
+        
+         ul.social {width:100%; margin:0; float:none; display:inline; @include clearfix;}
+       ul.social li {width:64px; float:left; 
+       @include respond-to(small-tablets) {  width:48px;}
+       
+       
+       }       
+       ul.social li img {max-width:100%;} 
+       
+        .right-btn-sm {margin-bottom:10px;}
+        .akcii-btn {margin-bottom:10px;}
+        
+        
+        
+        
+    }   
+       
+       
+       
+       }
+  
+  
+  } 
+
+#contacts{
+	img {max-width:100%;} 
+}
+
+
+
+.tarif_item_dialog  {font-size: 14px; font-family: Arial; line-height: 130%;}
