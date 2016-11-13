@@ -1,0 +1,85 @@
+// Создаем mixin
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 479px) { @content; }
+  }
+  @else if $media == wide-handhelds {
+    @media only screen and (min-width: 480px) and (max-width: 599px) { @content; }
+  }
+  @else if $media == small-tablets {
+    @media only screen and (min-width: 600px) and (max-width: 767px) { @content; }
+  }  
+  @else if $media == tablets {
+    @media only screen and (min-width: 768px) and (max-width: 979px) { @content; }
+  }
+  @else if $media == display {
+    @media only screen and (min-width: 980px) { @content; }
+  }
+}
+
+@mixin clearfix { &:after {  content: ".";  display: block;  clear: both;  visibility: hidden;  line-height: 0;  height: 0;} }
+// @include clearfix;
+
+@mixin pod-block-100 {
+		margin: 0 auto; position: relative; box-sizing: content-box;
+		
+			// Для телефонов
+			@include respond-to(handhelds) { width: 100%;  }
+			// Для телефонов с широким экраном
+			@include respond-to(wide-handhelds) { width: 100%;  }
+			// Для маленьких планшетов
+			@include respond-to(small-tablets) { width: 100%;  }
+			// Для планшетов
+			@include respond-to(tablets) { width: 100%;  }
+			// Для экранов
+			@include respond-to(display) {max-width:1200px;  }
+
+}
+
+// @include pod-block-100;
+
+
+
+@mixin pod-block-adaptive {
+
+ 		min-height: 50px;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        _height: 50px;	
+
+}
+// @include pod-block-adaptive;
+
+@mixin grey-background { 
+	background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+    border-radius: 5px;}
+
+
+
+
+@import "reset";
+
+
+
+.clear{ clear: both;}
+
+.block {
+	width: 100%; box-sizing: content-box; 
+	.pod-block { 
+
+		 margin: 0 auto; position: relative; box-sizing: content-box;
+		// Для телефонов
+		@include respond-to(handhelds) { width: 100%; };
+		// Для телефонов с широким экраном
+		@include respond-to(wide-handhelds) { width: 100%; };
+		// Для планшетов
+		@include respond-to(small-tablets) { width: 100%; };
+		@include respond-to(tablets) { width: 100%; };
+		// Для экранов
+		@include respond-to(display) { max-width: 1200px; };
+		
+	}
+}

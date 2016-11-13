@@ -1,0 +1,31 @@
+{
+  "name": "init-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm i gulp gulp-sass gulp-autoprefixer gulp-sourcemaps gulp-ftp gulp-util gulp-cssnano gulp-rename browser-sync -D"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/structura-nova/test2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/structura-nova/test2/issues"
+  },
+  "homepage": "https://github.com/structura-nova/test2#readme",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-ftp": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-util": "^3.0.7"
+  }
+}
